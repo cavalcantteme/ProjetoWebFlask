@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s4 m4">
+                <img class="rounded" width="230" height="250" src="{{ url_for('static', filename='' ~ product.img) }}"
+                    alt="Generic placeholder image">
+                <h5>R${{product.price}}</h5>
+                <h5>Itens Disponíveis: {{product.unit}}</h5>
+                    
+                </p>
+                <a class="btn btn-default waves-light blue" href="{{ url_for('purchase_item', id = product.id)}}">Comprar</a>
+            </div>
+            <div class="col s4 m8">
+                    <h5>{{product.brand}} {{product.name}} {{product.description}}</h5>
+                    <div>{{product.specifications}}</div>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ super() }} - Dashboard{% endblock %}
+
+{% block content %}
+
+<br>
+<img class="rounded" width="1288" height="400" src="{{ url_for('static', filename='img/logo.png') }}" alt="Generic placeholder image">
+<br><br>
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            {% for image in images %}
+            <div class="col s4 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img class="rounded" width="200" height="250" src="{{ url_for('static', filename='' ~ image.img) }}"
+                            alt="Generic placeholder image">
+                        <a class="btn-floating halfway-fab waves-effect waves-light blue" href="{{ url_for('view_types', name = image.name )}}"><i
+                                class="material-icons">add</i></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>{{image.name}}</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ super() }} - Sign in{% endblock %}
+{% block navbar %}{{ super() }} | Sign in{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <h2>Sign in</h2>
+  <div class="section">
+    <div class="row">
+
+      <form class="col s12" method="POST">
+        {{ form.csrf_token }}
+        <div class="row">
+          <div class="input-field col s6">
+            <label for="username">Username</label>
+            {{ form.username(class="form-control") }}
+            {% if form.errors.username %}
+            <div class="alert alert-danger" role="alert">
+              {{ form.errors.username }}
+            </div>
+            {% endif %}
+          </div>
+          <div class="input-field col s6">
+            <label for="password">Password</label>
+            {{ form.password(class="form-control") }}
+            {% if form.errors.password %}
+            <div class="alert alert-danger" role="alert">
+              {{ form.errors.password }}
+            </div>
+            {% endif %}
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </form>
+    </div>
+    <h3>New to Here?</h3>
+    <ul class="left hide-on-med-and-down">
+      <li><a href="{{ url_for('register')}}">Create Your Account</a></li>
+    </ul>
+  </div>
+</div>
+</div>
+<br><br><br><br><br><br>
+{% endblock %}

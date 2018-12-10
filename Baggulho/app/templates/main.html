@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ super() }} - Products{% endblock %}
+{% block navbar %}{{ super() }} | Products{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            {% for produto in bands %}
+            <div class="col s4 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <img class="rounded" width="200" height="250" src="{{ url_for('static', filename='' ~ produto.img) }}"
+                            alt="Generic placeholder image">
+                            <a class="btn-floating halfway-fab waves-effect waves-light blue" href="{{ url_for('view_product', id = produto.id)}}"><i
+                                class="material-icons">add</i></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>{{produto.name}}</h5>
+                        <p>{{produto.brand}} <br>
+                            {{produto.description}} <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
