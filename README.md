@@ -6,7 +6,7 @@ Acesse o diretório do projeto clonado ou baixado e descompactado.
 
 EX:
 ```
-cd ProjetoWebFlask
+cd ProjetoWebFlask/Baggulho
 ```
 Execute o comando:
 ```
